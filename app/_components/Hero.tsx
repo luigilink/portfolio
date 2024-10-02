@@ -8,7 +8,7 @@ import { Section } from "./Section";
 export const Hero = () => {
   return (
     <Section className="flex max-md:flex-col items-start">
-      <div className="flex-[2]">
+      <div className="flex-[3]">
         <h2 className="font-caption font-bold text-5xl text-primary">
           Hi I&apos;m JC !
         </h2>
@@ -29,7 +29,7 @@ export const Hero = () => {
             delaySpeed={1000}
           />
         </h2>
-        <p>
+        <p className="font-mono text-2ml">
           I have an extensive background in SharePoint, with skills in
           Infrastructure and development. I also contribute to open source
           projects on Github around M365 and PowerShell Desired Configuration.
@@ -37,7 +37,7 @@ export const Hero = () => {
           Resource Manager templates, Azure DevOps Pipelines and DSC deployment.
         </p>
       </div>
-      <div className="flex-1">
+      <div className="flex-[2]">
         <Image
           className="w-full h-auto max-w-xs rounded-full"
           src={SelfPortraitImg}

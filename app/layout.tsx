@@ -1,4 +1,5 @@
 import { cn } from "@/lib/utils";
+import { GeistMono } from "geist/font/mono";
 import { GeistSans } from "geist/font/sans";
 import type { Metadata } from "next";
 import { Anek_Telugu } from "next/font/google";
@@ -25,6 +26,7 @@ export default function RootLayout({
       <body
         className={cn(
           GeistSans.variable,
+          GeistMono.variable,
           AnekTelugu.variable,
           "font-sans h-full bg-background text-foreground"
         )}
