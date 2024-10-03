@@ -7,8 +7,8 @@ import { Section } from "./Section";
 
 export const Hero = () => {
   return (
-    <Section className="flex max-md:flex-col items-start">
-      <div className="flex-[3]">
+    <Section className="flex max-md:flex-col items-start gap-4">
+      <div className="flex-[3] flex flex-col gap-2">
         <h2 className="font-caption font-bold text-5xl text-primary">
           Hi I&apos;m JC !
         </h2>
@@ -32,9 +32,9 @@ export const Hero = () => {
         <p className="font-mono text-2ml">
           I have an extensive background in SharePoint, with skills in
           Infrastructure and development. I also contribute to open source
-          projects on Github around M365 and PowerShell Desired Configuration.
-          I&apos;ve also been playing a lot with Azure, especially around Azure
-          Resource Manager templates, Azure DevOps Pipelines and DSC deployment.
+          projects on Github around M365 and PowerShell DSC. I&apos;ve also been
+          playing a lot with Azure, especially around Azure Resource Manager
+          templates, Azure DevOps Pipelines and DSC deployment.
         </p>
       </div>
       <div className="flex-[2]">
