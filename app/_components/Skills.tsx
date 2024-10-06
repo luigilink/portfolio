@@ -1,7 +1,7 @@
 import Image, { StaticImageData } from "next/image";
-import AzureLogo from "./assets/Azure.svg";
-import Microsoft365Logo from "./assets/Microsoft365.svg";
-import PowerShellLogo from "./assets/Powershell.svg";
+import AzureLogo from "../public/Azure.svg";
+import Microsoft365Logo from "../public/Microsoft365.svg";
+import PowerShellLogo from "../public/Powershell.svg";
 import { Section } from "./Section";
 
 type SkillProps = {

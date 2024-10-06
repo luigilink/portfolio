@@ -8,10 +8,10 @@ import {
 } from "lucide-react";
 import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
-import { Section } from "./Section";
-import CAGIPLogo from "./assets/CAGIP.png";
-import MSLogo from "./assets/Microsoft.jpg";
+import CAGIPLogo from "../public/CAGIP.png";
+import MSLogo from "../public/Microsoft.jpg";
 import { LinkedinIcon } from "./icons/LinkedinIcon";
+import { Section } from "./Section";
 
 export const Status = () => {
   return (
