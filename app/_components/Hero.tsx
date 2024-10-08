@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { Typewriter } from "react-simple-typewriter";
-import SelfPortraitImg from "../public/selfportrait.jpg";
+import SelfPortraitImg from "../images/selfportrait.jpg";
 import { Section } from "./Section";
 
 export const Hero = () => {

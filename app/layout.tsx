@@ -14,6 +14,7 @@ export const metadata: Metadata = {
   title: "SPJC · SharePoint Guy",
   description:
     "SPJC is a WebSite dealing with topics around SharePoint, M365, and PowerShell.",
+  keywords: "SharePoint, M365, PowerShell, Script, Azure",
 };
 
 export default function RootLayout({
@@ -23,6 +24,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="h-full">
+      <head>
+        <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+      </head>
       <body
         className={cn(
           GeistSans.variable,
