@@ -72,7 +72,14 @@ const SIDE_PROJECTS: SideProjectProps[] = [
     title: "SPSWakeUp",
     description:
       "SPSWakeUp is a PowerShell script tool to warm up all site collection in your SharePoint environment.",
-    url: "https://github.com/luigilink",
+    url: "https://github.com/luigilink/spswakeup",
+  },
+  {
+    Logo: CloudSun,
+    title: "SPSWeather",
+    description:
+      "SPSWeather is a PowerShell script tool to have a status of your SharePoint environment.",
+    url: "https://github.com/luigilink/SPSWeather",
   },
   {
     Logo: ShieldCheck,
@@ -86,13 +93,6 @@ const SIDE_PROJECTS: SideProjectProps[] = [
     title: "SPSUpdate",
     description:
       "SPSUpdate is a PowerShell script tool to install cumulative updates in your SharePoint environment.",
-    url: "https://github.com/luigilink",
-  },
-  {
-    Logo: CloudSun,
-    title: "SPSWeather",
-    description:
-      "SPSWeather is a PowerShell script tool to have a status of your SharePoint environment.",
     url: "https://github.com/luigilink",
   },
 ];
