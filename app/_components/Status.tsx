@@ -86,7 +86,7 @@ const SIDE_PROJECTS: SideProjectProps[] = [
     title: "SPSTrust",
     description:
       "SPSTrust is a PowerShell script tool to configure trust Farm in your SharePoint environment.",
-    url: "https://github.com/luigilink",
+    url: "https://github.com/luigilink/SPSTrust",
   },
   {
     Logo: HardDriveDownload,
