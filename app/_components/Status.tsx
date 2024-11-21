@@ -93,7 +93,7 @@ const SIDE_PROJECTS: SideProjectProps[] = [
     title: "SPSUpdate",
     description:
       "SPSUpdate is a PowerShell script tool to install cumulative updates in your SharePoint environment.",
-    url: "https://github.com/luigilink",
+    url: "https://github.com/luigilink/SPSUpdate",
   },
 ];
 

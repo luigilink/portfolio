@@ -2,6 +2,7 @@ import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { GithubIcon } from "../icons/GithubIcon";
+import { InstagramIcon } from "../icons/InstagramIcon";
 import { LinkedinIcon } from "../icons/LinkedinIcon";
 import { TwitterIcon } from "../icons/TwitterIcon";
 import { Section } from "./Section";
@@ -33,6 +34,16 @@ export const Header = () => {
             className={cn(buttonVariants({ variant: "outline" }), "size-6 p-0")}
           >
             <TwitterIcon size={16} className="text-foreground"></TwitterIcon>
+          </Link>
+          <Link
+            href="https://www.instagram.com/luigilinkwii/"
+            target="_blank"
+            className={cn(buttonVariants({ variant: "outline" }), "size-6 p-0")}
+          >
+            <InstagramIcon
+              size={16}
+              className="text-foreground"
+            ></InstagramIcon>
           </Link>
         </ul>
       </Section>
