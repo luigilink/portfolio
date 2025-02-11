@@ -50,7 +50,7 @@ export const Status = () => {
           <div className="flex flex-col itens-center p-3">
             <Link
               className="inline-flex border-solid items-center gap-4 hover:bg-accent/50 transition-colors p-1 rounded-md text-sm font-mono"
-              href="https://github.com/luigilink"
+              href="https://www.linkedin.com/in/jean-cyril-drouhin/"
               target="_blank"
             >
               <LinkedinIcon
@@ -123,22 +123,22 @@ const SideProject = (props: SideProjectProps) => {
 
 const WORKS: WorkProps[] = [
   {
+    image: MSLogo,
+    title: "Microsoft",
+    role: "Cloud Solution Architect",
+    date: "Feb 2025 - Present",
+  },
+  {
     image: CAGIPLogo,
     title: "CAGIP",
     role: "Infrastructure Engineer",
-    date: "May 2021 - Present",
+    date: "May 2021 - Jan 2025",
   },
   {
     image: MSLogo,
     title: "Microsoft",
-    role: "Support Mission Critical Customer Lead M365",
-    date: "Nov 2017 - Apr 2021",
-  },
-  {
-    image: MSLogo,
-    title: "Microsoft",
-    role: "SharePoint Premier Field Engineer",
-    date: "Nov 2011 - Nov 2017",
+    role: "Support Mission Critical Customer Lead M365 | SharePoint PFE",
+    date: "Nov 2011 - Apr 2021",
   },
 ];
 
