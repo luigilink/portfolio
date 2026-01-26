@@ -13,89 +13,7 @@ import CAGIPLogo from "../images/CAGIP.png";
 import MSLogo from "../images/Microsoft.jpg";
 import { Section } from "./Section";
 
-export const Status = () => {
-  return (
-    <Section className="flex max-md:flex-col items-start gap-4">
-      <div className="flex-[3] w-full">
-        <Card className="flex p-4 flex-col gap-4">
-          <p className="text-lg text-muted-foreground">Side Projects</p>
-          <div className="flex flex-col gap-4">
-            {SIDE_PROJECTS.map((project, index) => (
-              <SideProject
-                key={index}
-                Logo={project.Logo}
-                title={project.title}
-                description={project.description}
-                url={project.url}
-              />
-            ))}
-          </div>
-        </Card>
-      </div>
-      <div className="flex-[2] w-full">
-        <Card className="flex p-4 flex-col gap-4">
-          <p className="text-lg text-muted-foreground">Work</p>
-          <div className="flex flex-col gap-4">
-            {WORKS.map((work, index) => (
-              <Work
-                key={index}
-                image={work.image}
-                title={work.title}
-                role={work.role}
-                date={work.date}
-              />
-            ))}
-          </div>
-          <hr className="h-px my-2 bg-muted-foreground"></hr>
-          <div className="flex flex-col itens-center p-3">
-            <Link
-              className="inline-flex border-solid items-center gap-4 hover:bg-accent/50 transition-colors p-1 rounded-md text-sm font-mono"
-              href="https://www.linkedin.com/in/jean-cyril-drouhin/"
-              target="_blank"
-            >
-              <LinkedinIcon
-                size={24}
-                className="text-foreground"
-              ></LinkedinIcon>
-              View More on LinkeDin
-            </Link>
-          </div>
-        </Card>
-      </div>
-    </Section>
-  );
-};
-
-const SIDE_PROJECTS: SideProjectProps[] = [
-  {
-    Logo: LucideServer,
-    title: "SPSWakeUp",
-    description:
-      "SPSWakeUp is a PowerShell script tool to warm up all site collection in your SharePoint environment.",
-    url: "https://github.com/luigilink/spswakeup",
-  },
-  {
-    Logo: CloudSun,
-    title: "SPSWeather",
-    description:
-      "SPSWeather is a PowerShell script tool to have a status of your SharePoint environment.",
-    url: "https://github.com/luigilink/SPSWeather",
-  },
-  {
-    Logo: ShieldCheck,
-    title: "SPSTrust",
-    description:
-      "SPSTrust is a PowerShell script tool to configure trust Farm in your SharePoint environment.",
-    url: "https://github.com/luigilink/SPSTrust",
-  },
-  {
-    Logo: HardDriveDownload,
-    title: "SPSUpdate",
-    description:
-      "SPSUpdate is a PowerShell script tool to install cumulative updates in your SharePoint environment.",
-    url: "https://github.com/luigilink/SPSUpdate",
-  },
-];
+// --- TYPES ---
 
 type SideProjectProps = {
   Logo: LucideIcon;
@@ -104,22 +22,41 @@ type SideProjectProps = {
   url: string;
 };
 
-const SideProject = (props: SideProjectProps) => {
-  return (
-    <Link
-      href={props.url}
-      className="inline-flex items-center gap-4 hover:bg-accent/50 transition-colors p-1 rounded"
-    >
-      <span className="bg-accent text-accent-foreground p-3 rounded-sm">
-        <props.Logo />
-      </span>
-      <div>
-        <p className="text-lg font-semibold">{props.title}</p>
-        <p className="text-sm text-muted-foreground">{props.description}</p>
-      </div>
-    </Link>
-  );
+type WorkProps = {
+  image: StaticImageData;
+  title: string;
+  role: string;
+  date: string;
 };
+
+// --- DATA ---
+
+const SIDE_PROJECTS: SideProjectProps[] = [
+  {
+    Logo: LucideServer,
+    title: "SPSWakeUp",
+    description: "PowerShell script tool to warm up all site collections in SharePoint.",
+    url: "https://github.com/luigilink/spswakeup",
+  },
+  {
+    Logo: CloudSun,
+    title: "SPSWeather",
+    description: "PowerShell script tool to get a status of your SharePoint environment.",
+    url: "https://github.com/luigilink/SPSWeather",
+  },
+  {
+    Logo: ShieldCheck,
+    title: "SPSTrust",
+    description: "PowerShell script tool to configure trust Farm in SharePoint.",
+    url: "https://github.com/luigilink/SPSTrust",
+  },
+  {
+    Logo: HardDriveDownload,
+    title: "SPSUpdate",
+    description: "PowerShell script tool to install cumulative updates in SharePoint.",
+    url: "https://github.com/luigilink/SPSUpdate",
+  },
+];
 
 const WORKS: WorkProps[] = [
   {
@@ -142,28 +79,86 @@ const WORKS: WorkProps[] = [
   },
 ];
 
-type WorkProps = {
-  image: StaticImageData;
-  title: string;
-  role: string;
-  date: string;
+// --- SUB-COMPONENTS ---
+
+const SideProject = (props: SideProjectProps) => {
+  return (
+    <Link
+      href={props.url}
+      className="group flex items-center gap-4 hover:bg-white/5 transition-all p-2 rounded-xl border border-transparent hover:border-white/10"
+    >
+      <span className="bg-accent/30 text-accent-foreground p-3 rounded-lg group-hover:scale-110 group-hover:bg-blue-600/20 group-hover:text-blue-400 transition-all duration-300">
+        <props.Logo size={20} />
+      </span>
+      <div>
+        <p className="text-base font-semibold group-hover:text-blue-400 transition-colors">{props.title}</p>
+        <p className="text-xs text-muted-foreground leading-snug">{props.description}</p>
+      </div>
+    </Link>
+  );
 };
 
 const Work = (props: WorkProps) => {
   return (
-    <div className="inline-flex items-start gap-4 rounded">
+    <div className="flex items-start gap-4 group">
       <Image
         src={props.image}
         alt={props.title}
-        className="w-10 h-10 object-contain rounded-md"
-      ></Image>
-      <div>
-        <p className="text-lg font-semibold">{props.title}</p>
-        <p className="text-sm text-muted-foreground">{props.role}</p>
-        <p className="text-xs font-mono text-muted-foreground pt-2">
+        className="w-10 h-10 object-contain rounded-lg group-hover:scale-105 transition-transform"
+      />
+      <div className="flex flex-col">
+        <p className="text-base font-semibold">{props.title}</p>
+        <p className="text-xs text-muted-foreground italic leading-tight mb-1">{props.role}</p>
+        <p className="text-[10px] font-mono text-muted-foreground/60 bg-white/5 w-fit px-2 py-0.5 rounded">
           {props.date}
         </p>
       </div>
     </div>
+  );
+};
+
+// --- MAIN COMPONENT ---
+
+export const Status = () => {
+  return (
+    <Section className="flex max-md:flex-col items-stretch gap-4">
+      {/* SIDE PROJECTS CARD */}
+      <div className="flex-[3] w-full">
+        <Card className="flex p-6 flex-col gap-4 bg-glass-gradient border-white/5 shadow-glass backdrop-blur-sm">
+          <p className="text-sm font-mono text-muted-foreground uppercase tracking-wider">Side Projects</p>
+          <div className="flex flex-col gap-4">
+            {SIDE_PROJECTS.map((project, index) => (
+              <SideProject key={index} {...project} />
+            ))}
+          </div>
+        </Card>
+      </div>
+
+      {/* WORK & LINKS CARD */}
+      <div className="flex-[2] w-full">
+        <Card className="flex p-6 flex-col gap-4 bg-glass-gradient border-white/5 shadow-glass backdrop-blur-sm">
+          <p className="text-sm font-mono text-muted-foreground uppercase tracking-wider">Work</p>
+          <div className="flex flex-col gap-6 flex-1">
+            {WORKS.map((work, index) => (
+              <Work key={index} {...work} />
+            ))}
+          </div>
+          
+          <hr className="border-white/10 my-1.5" />
+          
+          <div className="flex flex-col gap-2">
+            {/* LinkedIn */}
+            <Link
+              className="inline-flex items-center gap-4 hover:bg-white/5 transition-all p-2 rounded-lg text-sm font-mono group"
+              href="https://www.linkedin.com/in/jean-cyril-drouhin/"
+              target="_blank"
+            >
+              <LinkedinIcon size={20} className="text-muted-foreground group-hover:text-primary transition-colors" />
+              <span className="group-hover:translate-x-1 transition-transform">View More on LinkedIn</span>
+            </Link>
+          </div>
+        </Card>
+      </div>
+    </Section>
   );
 };
