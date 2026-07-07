@@ -8,10 +8,10 @@ import { Section } from "./Section";
 export const Hero = () => {
   return (
     <Section className="flex max-md:flex-col items-center gap-8 py-10">
-      <div className="flex-[3] flex flex-col gap-4">
+      <div className="flex-3 flex flex-col gap-4">
         <h1 className="font-caption font-bold text-6xl text-primary tracking-tight">
           Hi, I&apos;m{" "}
-          <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+          <span className="bg-linear-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
             JC
           </span>
         </h1>
@@ -41,7 +41,7 @@ export const Hero = () => {
         </p>
       </div>
 
-      <div className="flex-[2] relative group">
+      <div className="flex-2 relative group">
         <div className="absolute inset-0 border border-white/20 rounded-2xl rotate-3 group-hover:rotate-0 transition-transform duration-500"></div>
         <div className="relative">
           <Image

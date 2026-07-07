@@ -33,7 +33,7 @@ const SKILLS: SkillProps[] = [
 
 const Skill = (props: SkillProps) => {
   return (
-    <div className="group relative flex flex-col gap-3 flex-1 p-6 rounded-2xl border border-white/5 bg-glass-gradient shadow-glass backdrop-blur-sm transition-all duration-300 hover:border-blue-500/50 hover:-translate-y-1">
+    <div className="group relative flex flex-col gap-3 flex-1 p-6 rounded-2xl border border-white/5 bg-glass-gradient shadow-glass backdrop-blur-xs transition-all duration-300 hover:border-blue-500/50 hover:-translate-y-1">
       <div className="absolute inset-0 bg-blue-500/5 opacity-0 group-hover:opacity-100 rounded-2xl transition-opacity pointer-events-none" />
       
       <div className="flex items-center gap-3">
