@@ -1,11 +1,22 @@
 "use client";
 
+import { usePrefersReducedMotion } from "@/lib/usePrefersReducedMotion";
 import Image from "next/image";
 import { Typewriter } from "react-simple-typewriter";
 import SelfPortraitImg from "../images/selfportrait.jpg";
 import { Section } from "./Section";
 
+const ROLES = [
+  "A SharePoint Guy",
+  "Cloud Solution Architect",
+  "PowerShell Wizard",
+  "DevOps Engineer",
+  "Passionate Geek",
+];
+
 export const Hero = () => {
+  const prefersReducedMotion = usePrefersReducedMotion();
+
   return (
     <Section className="flex max-md:flex-col items-center gap-8 py-10">
       <div className="flex-3 flex flex-col gap-4">
@@ -18,21 +29,19 @@ export const Hero = () => {
         
         <div className="h-12">
           <h2 className="font-caption text-3xl md:text-4xl text-foreground/90 italic">
-            <Typewriter
-              words={[
-                "A SharePoint Guy",
-                "Cloud Solution Architect",
-                "PowerShell Wizard",
-                "DevOps Engineer",
-                "Passionate Geek",
-              ]}
-              loop={0}
-              cursor
-              cursorStyle="_"
-              typeSpeed={70}
-              deleteSpeed={50}
-              delaySpeed={1500}
-            />
+            {prefersReducedMotion ? (
+              ROLES[0]
+            ) : (
+              <Typewriter
+                words={ROLES}
+                loop={0}
+                cursor
+                cursorStyle="_"
+                typeSpeed={70}
+                deleteSpeed={50}
+                delaySpeed={1500}
+              />
+            )}
           </h2>
         </div>
         <p className="font-sans text-lg text-muted-foreground leading-relaxed max-w-2xl">

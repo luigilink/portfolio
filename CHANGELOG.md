@@ -3,6 +3,22 @@
 The format is based on and uses the types of changes according to [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.4.0] - 2026-07-08
+
+### Added
+
+- SEO and social sharing metadata: `metadataBase`, canonical URL, Open Graph and
+  Twitter card tags, and a dynamically generated Open Graph image
+  (`app/opengraph-image.tsx`).
+- JSON-LD `Person` structured data for rich search results.
+- `app/sitemap.ts` and `app/robots.ts`.
+- `theme-color` meta for the mobile browser UI.
+
+### Changed
+
+- Respect the `prefers-reduced-motion` user setting: the animated mesh background
+  and the hero typewriter are disabled for users who opt out of motion.
+
 ## [0.3.0] - 2026-07-08
 
 ### Added
