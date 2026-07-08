@@ -3,6 +3,7 @@ import { GeistMono } from "geist/font/mono";
 import { GeistSans } from "geist/font/sans";
 import type { Metadata, Viewport } from "next";
 import { Anek_Telugu } from "next/font/google";
+import { Analytics } from "./_components/Analytics";
 import "./globals.css";
 
 const AnekTelugu = Anek_Telugu({
@@ -102,6 +103,7 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
         />
+        <Analytics />
         {children}
       </body>
     </html>

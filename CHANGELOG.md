@@ -12,6 +12,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Contact call-to-action section with a "Connect on LinkedIn" button
   (no email address exposed).
 - Dependabot configuration for automated npm and GitHub Actions updates.
+- Privacy-friendly web analytics via Azure Application Insights: a client
+  component loads the SDK only when `APPLICATIONINSIGHTS_CONNECTION_STRING`
+  is configured, using cookieless tracking. The connection string is read at
+  runtime through a dynamic route handler.
 
 ## [0.4.0] - 2026-07-08
 
