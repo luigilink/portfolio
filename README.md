@@ -63,8 +63,11 @@ enough, but you can optionally provide a token to raise the limit to
 | Variable       | Required | Description                                            |
 | -------------- | -------- | ------------------------------------------------------ |
 | `GITHUB_TOKEN` | No       | GitHub personal access token (read-only, public repos) |
+| `APPLICATIONINSIGHTS_CONNECTION_STRING` | No | Azure Application Insights connection string; when set, privacy-friendly (cookieless) analytics is enabled |
 
 On Azure App Service, add it under **Settings → Environment variables**.
+Enabling Application Insights on the Web App sets
+`APPLICATIONINSIGHTS_CONNECTION_STRING` automatically.
 
 ## Deployment
 
