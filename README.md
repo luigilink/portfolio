@@ -3,6 +3,8 @@
 ![Website](https://img.shields.io/website?url=https%3A%2F%2Fspjc.fr&style=flat)
 ![Last commit](https://img.shields.io/github/last-commit/luigilink/portfolio.svg?style=flat)
 ![Issues opened](https://img.shields.io/github/issues/luigilink/portfolio.svg?style=flat)
+![License](https://img.shields.io/github/license/luigilink/portfolio.svg?style=flat)
+[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](CODE_OF_CONDUCT.md)
 
 Personal portfolio of **Jean-Cyril Drouhin** — SharePoint & M365 specialist, Cloud Solution Architect. Built with Next.js and deployed on Azure App Service.
 
