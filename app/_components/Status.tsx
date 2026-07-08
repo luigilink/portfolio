@@ -1,6 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { getTopProjects, type Project } from "@/lib/github";
 import {
+  ArrowUpRight,
   Boxes,
   Braces,
   Code,
@@ -61,8 +62,14 @@ const WORKS: WorkProps[] = [
   {
     image: MSLogo,
     title: "Microsoft",
-    role: "Support Mission Critical Customer Lead M365 | SharePoint PFE",
-    date: "Nov 2011 - Apr 2021",
+    role: "Support for Mission Critical Customer Lead M365",
+    date: "Nov 2017 - Apr 2021",
+  },
+  {
+    image: MSLogo,
+    title: "Microsoft",
+    role: "SharePoint Premier Field Engineer",
+    date: "Nov 2011 - Nov 2017",
   },
 ];
 
@@ -132,7 +139,21 @@ export const Status = async () => {
       {/* SIDE PROJECTS CARD */}
       <div className="flex-3 w-full">
         <Card className="flex p-6 flex-col gap-4 bg-glass-gradient border-white/5 shadow-glass backdrop-blur-xs">
-          <p className="text-sm font-mono text-muted-foreground uppercase tracking-wider">Latest Projects</p>
+          <div className="flex items-center justify-between gap-2">
+            <p className="text-sm font-mono text-muted-foreground uppercase tracking-wider">Latest Projects</p>
+            <Link
+              href="https://github.com/luigilink?tab=repositories"
+              target="_blank"
+              aria-label="View all projects on GitHub"
+              className="group inline-flex items-center gap-1 text-xs font-mono text-muted-foreground hover:text-blue-400 transition-colors"
+            >
+              View all
+              <ArrowUpRight
+                size={14}
+                className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"
+              />
+            </Link>
+          </div>
           <div className="flex flex-col gap-4">
             {projects.map((project) => (
               <SideProject key={project.name} {...project} />

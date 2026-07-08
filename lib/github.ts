@@ -1,6 +1,6 @@
 const GITHUB_USER = "luigilink";
 const REVALIDATE_SECONDS = 3600;
-const DEFAULT_COUNT = 6;
+const DEFAULT_COUNT = 5;
 
 export type Project = {
   name: string;
