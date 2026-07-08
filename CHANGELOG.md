@@ -15,6 +15,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   optional `GITHUB_TOKEN` environment variable for a higher rate limit.
 - "View all" link in the Latest Projects card header pointing to the GitHub
   repositories tab.
+- Community health files: `LICENSE` (MIT) and `CODE_OF_CONDUCT.md`
+  (Contributor Covenant 2.1).
 
 ### Changed
 

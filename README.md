@@ -74,3 +74,8 @@ custom domain [spjc.fr](https://spjc.fr).
 ## Changelog
 
 See [CHANGELOG.md](CHANGELOG.md).
+
+## License
+
+Released under the [MIT License](LICENSE). Please also review the
+[Code of Conduct](CODE_OF_CONDUCT.md).
