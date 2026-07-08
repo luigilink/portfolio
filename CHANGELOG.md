@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   with a link to the public Microsoft Learn transcript.
 - Contact call-to-action section with a "Connect on LinkedIn" button
   (no email address exposed).
+- Dependabot configuration for automated npm and GitHub Actions updates.
 
 ## [0.4.0] - 2026-07-08
 
