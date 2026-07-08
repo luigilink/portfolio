@@ -1,10 +1,14 @@
 import { Card } from "@/components/ui/card";
+import { getTopProjects, type Project } from "@/lib/github";
 import {
-  CloudSun,
-  HardDriveDownload,
-  LucideIcon,
-  LucideServer,
-  ShieldCheck,
+  ArrowUpRight,
+  Boxes,
+  Braces,
+  Code,
+  FileCode,
+  Globe,
+  Star,
+  Terminal,
 } from "lucide-react";
 import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
@@ -15,13 +19,6 @@ import { Section } from "./Section";
 
 // --- TYPES ---
 
-type SideProjectProps = {
-  Logo: LucideIcon;
-  title: string;
-  description: string;
-  url: string;
-};
-
 type WorkProps = {
   image: StaticImageData;
   title: string;
@@ -31,32 +28,23 @@ type WorkProps = {
 
 // --- DATA ---
 
-const SIDE_PROJECTS: SideProjectProps[] = [
-  {
-    Logo: LucideServer,
-    title: "SPSWakeUp",
-    description: "PowerShell script tool to warm up all site collections in SharePoint.",
-    url: "https://github.com/luigilink/spswakeup",
-  },
-  {
-    Logo: CloudSun,
-    title: "SPSWeather",
-    description: "PowerShell script tool to get a status of your SharePoint environment.",
-    url: "https://github.com/luigilink/SPSWeather",
-  },
-  {
-    Logo: ShieldCheck,
-    title: "SPSTrust",
-    description: "PowerShell script tool to configure trust Farm in SharePoint.",
-    url: "https://github.com/luigilink/SPSTrust",
-  },
-  {
-    Logo: HardDriveDownload,
-    title: "SPSUpdate",
-    description: "PowerShell script tool to install cumulative updates in SharePoint.",
-    url: "https://github.com/luigilink/SPSUpdate",
-  },
-];
+const ProjectIcon = ({ language }: { language: string | null }) => {
+  switch (language) {
+    case "PowerShell":
+      return <Terminal size={20} />;
+    case "HCL":
+      return <Boxes size={20} />;
+    case "Python":
+      return <FileCode size={20} />;
+    case "TypeScript":
+    case "JavaScript":
+      return <Braces size={20} />;
+    case "HTML":
+      return <Globe size={20} />;
+    default:
+      return <Code size={20} />;
+  }
+};
 
 const WORKS: WorkProps[] = [
   {
@@ -74,25 +62,49 @@ const WORKS: WorkProps[] = [
   {
     image: MSLogo,
     title: "Microsoft",
-    role: "Support Mission Critical Customer Lead M365 | SharePoint PFE",
-    date: "Nov 2011 - Apr 2021",
+    role: "Support for Mission Critical Customer Lead M365",
+    date: "Nov 2017 - Apr 2021",
+  },
+  {
+    image: MSLogo,
+    title: "Microsoft",
+    role: "SharePoint Premier Field Engineer",
+    date: "Nov 2011 - Nov 2017",
   },
 ];
 
 // --- SUB-COMPONENTS ---
 
-const SideProject = (props: SideProjectProps) => {
+const SideProject = (props: Project) => {
   return (
     <Link
       href={props.url}
+      target="_blank"
       className="group flex items-center gap-4 hover:bg-white/5 transition-all p-2 rounded-xl border border-transparent hover:border-white/10"
     >
       <span className="bg-accent/30 text-accent-foreground p-3 rounded-lg group-hover:scale-110 group-hover:bg-blue-600/20 group-hover:text-blue-400 transition-all duration-300">
-        <props.Logo size={20} />
+        <ProjectIcon language={props.language} />
       </span>
-      <div>
-        <p className="text-base font-semibold group-hover:text-blue-400 transition-colors">{props.title}</p>
-        <p className="text-xs text-muted-foreground leading-snug">{props.description}</p>
+      <div className="min-w-0 flex-1">
+        <div className="flex items-center gap-2">
+          <p className="text-base font-semibold group-hover:text-blue-400 transition-colors truncate">
+            {props.name}
+          </p>
+          {props.stars > 0 && (
+            <span className="inline-flex items-center gap-1 text-[10px] font-mono text-muted-foreground/70 bg-white/5 px-1.5 py-0.5 rounded shrink-0">
+              <Star size={10} className="fill-current" />
+              {props.stars}
+            </span>
+          )}
+        </div>
+        <p className="text-xs text-muted-foreground leading-snug">
+          {props.description}
+        </p>
+        {props.language && (
+          <p className="text-[10px] font-mono text-muted-foreground/50 mt-0.5">
+            {props.language}
+          </p>
+        )}
       </div>
     </Link>
   );
@@ -119,33 +131,49 @@ const Work = (props: WorkProps) => {
 
 // --- MAIN COMPONENT ---
 
-export const Status = () => {
+export const Status = async () => {
+  const projects = await getTopProjects();
+
   return (
     <Section className="flex max-md:flex-col items-stretch gap-4">
       {/* SIDE PROJECTS CARD */}
-      <div className="flex-[3] w-full">
-        <Card className="flex p-6 flex-col gap-4 bg-glass-gradient border-white/5 shadow-glass backdrop-blur-sm">
-          <p className="text-sm font-mono text-muted-foreground uppercase tracking-wider">Side Projects</p>
+      <div className="flex-3 w-full">
+        <Card className="flex p-6 flex-col gap-4 bg-glass-gradient border-white/5 shadow-glass backdrop-blur-xs">
+          <div className="flex items-center justify-between gap-2">
+            <p className="text-sm font-mono text-muted-foreground uppercase tracking-wider">Latest Projects</p>
+            <Link
+              href="https://github.com/luigilink?tab=repositories"
+              target="_blank"
+              aria-label="View all projects on GitHub"
+              className="group inline-flex items-center gap-1 text-xs font-mono text-muted-foreground hover:text-blue-400 transition-colors"
+            >
+              View all
+              <ArrowUpRight
+                size={14}
+                className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"
+              />
+            </Link>
+          </div>
           <div className="flex flex-col gap-4">
-            {SIDE_PROJECTS.map((project, index) => (
-              <SideProject key={index} {...project} />
+            {projects.map((project) => (
+              <SideProject key={project.name} {...project} />
             ))}
           </div>
         </Card>
       </div>
 
       {/* WORK & LINKS CARD */}
-      <div className="flex-[2] w-full">
-        <Card className="flex p-6 flex-col gap-4 bg-glass-gradient border-white/5 shadow-glass backdrop-blur-sm">
+      <div className="flex-2 w-full">
+        <Card className="flex p-6 flex-col gap-4 bg-glass-gradient border-white/5 shadow-glass backdrop-blur-xs">
           <p className="text-sm font-mono text-muted-foreground uppercase tracking-wider">Work</p>
           <div className="flex flex-col gap-6 flex-1">
             {WORKS.map((work, index) => (
               <Work key={index} {...work} />
             ))}
           </div>
-          
+
           <hr className="border-white/10 my-1.5" />
-          
+
           <div className="flex flex-col gap-2">
             {/* LinkedIn */}
             <Link

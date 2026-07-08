@@ -24,9 +24,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="h-full">
-      <head>
-        <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
-      </head>
       <body
         className={cn(
           GeistSans.variable,
