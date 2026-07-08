@@ -1,3 +1,4 @@
+import { Certifications } from "./_components/Certifications";
 import { Header } from "./_components/Header";
 import { Hero } from "./_components/Hero";
 import { Skills } from "./_components/Skills";
@@ -14,6 +15,8 @@ export default function Home() {
         <Status />
         <Spacing size="sm" />
         <Skills />
+        <Spacing size="sm" />
+        <Certifications />
         <Spacing size="sm" />
       </div>
     </main>
