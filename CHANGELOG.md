@@ -5,6 +5,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Bilingual (FR/EN) legal notice page at `/mentions-legales`, linked from a new
+  footer on the home page and listed in the sitemap.
+
 ### Changed
 
 - Dependabot now ignores major version updates (handled manually) and only

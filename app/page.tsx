@@ -1,5 +1,6 @@
 import { Certifications } from "./_components/Certifications";
 import { Contact } from "./_components/Contact";
+import { Footer } from "./_components/Footer";
 import { Header } from "./_components/Header";
 import { Hero } from "./_components/Hero";
 import { Skills } from "./_components/Skills";
@@ -21,6 +22,7 @@ export default function Home() {
         <Spacing size="sm" />
         <Contact />
         <Spacing size="sm" />
+        <Footer />
       </div>
     </main>
   );
