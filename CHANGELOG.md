@@ -9,6 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Bilingual (FR/EN) legal notice page at `/mentions-legales`, linked from a new
   footer on the home page and listed in the sitemap.
+- Apple touch icon (`app/apple-icon.png`) so iOS devices get a proper home-screen
+  icon instead of a 404.
 
 ### Changed
 
