@@ -3,12 +3,25 @@
 The format is based on and uses the types of changes according to [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [0.5.1] - 2026-07-09
+
+### Added
+
+- Bilingual (FR/EN) legal notice page at `/mentions-legales`, linked from a new
+  footer on the home page and listed in the sitemap.
+- Apple touch icon (`app/apple-icon.png`) so iOS devices get a proper home-screen
+  icon instead of a 404.
 
 ### Changed
 
 - Dependabot now ignores major version updates (handled manually) and only
   proposes grouped minor/patch updates and security fixes, to reduce noise.
+
+### Fixed
+
+- Theme contrast bug: `--primary-foreground` and `--secondary-foreground` were
+  identical to their background tokens, making text on `default`/`secondary`
+  buttons invisible. They now use contrasting values.
 
 ## [0.5.0] - 2026-07-08
 
