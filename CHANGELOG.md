@@ -5,6 +5,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Apple touch icon (`app/apple-icon.png`) so iOS devices get a proper home-screen
+  icon instead of a 404.
+
 ### Changed
 
 - Dependabot now ignores major version updates (handled manually) and only
