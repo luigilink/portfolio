@@ -17,6 +17,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Dependabot now ignores major version updates (handled manually) and only
   proposes grouped minor/patch updates and security fixes, to reduce noise.
 
+### Fixed
+
+- Theme contrast bug: `--primary-foreground` and `--secondary-foreground` were
+  identical to their background tokens, making text on `default`/`secondary`
+  buttons invisible. They now use contrasting values.
+
 ## [0.5.0] - 2026-07-08
 
 ### Added
