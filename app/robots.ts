@@ -8,7 +8,7 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://spjc.fr/sitemap.xml",
-    host: "https://spjc.fr",
+    sitemap: "https://www.spjc.fr/sitemap.xml",
+    host: "https://www.spjc.fr",
   };
 }

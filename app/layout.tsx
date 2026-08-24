@@ -11,7 +11,7 @@ const AnekTelugu = Anek_Telugu({
   variable: "--font-caption",
 });
 
-const siteUrl = "https://spjc.fr";
+const siteUrl = "https://www.spjc.fr";
 const title = "SPJC · SharePoint Guy";
 const description =
   "Portfolio of Jean-Cyril Drouhin — SharePoint & M365 specialist and Cloud Solution Architect. Infrastructure as Code with PowerShell DSC, ARM templates and Azure DevOps.";
