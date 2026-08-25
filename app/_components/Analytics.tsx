@@ -4,21 +4,18 @@ import { useEffect } from "react";
 
 export const Analytics = () => {
   useEffect(() => {
+    const connectionString =
+      process.env.NEXT_PUBLIC_APPLICATIONINSIGHTS_CONNECTION_STRING;
+    if (!connectionString) return;
+
     let cancelled = false;
 
     (async () => {
       try {
-        const res = await fetch("/api/insights");
-        if (!res.ok) return;
-
-        const { connectionString } = (await res.json()) as {
-          connectionString: string | null;
-        };
-        if (!connectionString || cancelled) return;
-
         const { ApplicationInsights } = await import(
           "@microsoft/applicationinsights-web"
         );
+        if (cancelled) return;
 
         const appInsights = new ApplicationInsights({
           config: {
