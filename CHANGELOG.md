@@ -3,6 +3,25 @@
 The format is based on and uses the types of changes according to [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.6.0] - 2026-08-25
+
+### Changed
+
+- Migrated hosting from Azure App Service to **Azure Static Web Apps** (Free plan).
+  The site is now a static export (`output: "export"`): the landing page is
+  pre-rendered and the GitHub repositories are fetched at build time instead of via
+  runtime ISR. Deployment now runs through `azure-static-web-apps.yml`.
+- Analytics now reads `NEXT_PUBLIC_APPLICATIONINSIGHTS_CONNECTION_STRING`, inlined at
+  build time from a GitHub secret (the runtime `/api/insights` route was removed).
+- The Open Graph image is now a static `.png` asset instead of a generated route.
+- Canonical URL set to `https://www.spjc.fr`.
+- Bumped `next`, `eslint-config-next` and `lucide-react` (minor/patch).
+
+### Fixed
+
+- Removed the Node 20 deprecation warning and the invalid `skip_api_build` input in
+  the Static Web Apps workflow.
+
 ## [0.5.1] - 2026-07-09
 
 ### Added
