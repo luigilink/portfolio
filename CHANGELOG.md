@@ -3,6 +3,16 @@
 The format is based on and uses the types of changes according to [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.6.1] - 2026-08-25
+
+### Added
+
+- Web app manifest (`app/manifest.ts`) so the site is installable as a basic PWA.
+- Security headers in `staticwebapp.config.json`: `Permissions-Policy` (disables
+  camera, microphone, geolocation and FLoC) and a `Content-Security-Policy` in
+  **report-only** mode (allowlisting self, the Application Insights SDK and its
+  telemetry endpoints).
+
 ## [0.6.0] - 2026-08-25
 
 ### Changed
