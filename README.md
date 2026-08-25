@@ -6,29 +6,33 @@
 ![License](https://img.shields.io/github/license/luigilink/portfolio.svg?style=flat)
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](CODE_OF_CONDUCT.md)
 
-Personal portfolio of **Jean-Cyril Drouhin** — SharePoint & M365 specialist, Cloud Solution Architect. Built with Next.js and deployed on Azure App Service.
+Personal portfolio of **Jean-Cyril Drouhin** — SharePoint & M365 specialist, Cloud Solution Architect. Built with Next.js as a static export and hosted on Azure Static Web Apps.
 
 🌐 **Live site: [spjc.fr](https://spjc.fr)**
 
 ## Features
 
-- Server-rendered landing page with a hero, core-expertise and work sections.
-- **Dynamic projects section**: the latest public GitHub repositories are fetched
-  from the GitHub API and revalidated hourly (ISR), so the site stays up to date
-  on its own — no code change needed when a new project is pushed.
-- Glassmorphism design with an animated mesh background.
+- Single-page landing site with a hero, core-expertise, work, certifications and
+  contact sections.
+- **Projects section**: the latest public GitHub repositories are fetched from the
+  GitHub API **at build time** and rendered into the static pages. The list
+  refreshes on each deployment (a push to `main`), not at runtime.
+- Glassmorphism design with an animated mesh background, respecting
+  `prefers-reduced-motion`.
+- SEO metadata, Open Graph image, sitemap, robots and a bilingual legal notice.
 
 ## Tech stack
 
 | Area       | Technology                                  |
 | ---------- | ------------------------------------------- |
-| Framework  | [Next.js 16](https://nextjs.org) (App Router, Turbopack) |
+| Framework  | [Next.js 16](https://nextjs.org) (App Router, static export) |
 | Language   | [TypeScript](https://www.typescriptlang.org/) |
 | UI         | [React 19](https://react.dev/)              |
 | Styling    | [Tailwind CSS 4](https://tailwindcss.com/), [shadcn/ui](https://ui.shadcn.com/) |
 | Icons      | [lucide-react](https://lucide.dev/)         |
 | Fonts      | [Geist](https://vercel.com/font) via `next/font` |
-| Hosting    | Azure App Service (Linux, Node 22-LTS)      |
+| Analytics  | Azure Application Insights (cookieless)      |
+| Hosting    | Azure Static Web Apps (Free plan)            |
 
 ## Getting started
 
@@ -44,37 +48,36 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) to view the site.
 
+`npm run build` produces a fully static site in the `out/` directory
+(`output: "export"` in `next.config.mjs`).
+
 ### Available scripts
 
 | Script          | Description                          |
 | --------------- | ------------------------------------ |
 | `npm run dev`   | Start the development server         |
-| `npm run build` | Create an optimized production build |
-| `npm run start` | Serve the production build           |
+| `npm run build` | Build the static export into `out/`  |
 | `npm run lint`  | Run ESLint                           |
 
 ## Configuration
 
-The projects section calls the public GitHub API, which is rate-limited to
-60 requests/hour per IP. Thanks to ISR (1h revalidation) this is more than
-enough, but you can optionally provide a token to raise the limit to
-5,000 requests/hour:
+Both variables are optional and read **at build time**.
 
 | Variable       | Required | Description                                            |
 | -------------- | -------- | ------------------------------------------------------ |
-| `GITHUB_TOKEN` | No       | GitHub personal access token (read-only, public repos) |
-| `APPLICATIONINSIGHTS_CONNECTION_STRING` | No | Azure Application Insights connection string; when set, privacy-friendly (cookieless) analytics is enabled |
+| `GITHUB_TOKEN` | No       | GitHub personal access token used when fetching the repositories at build time (public repos, read-only). Raises the API rate limit from 60 to 5,000 requests/hour. |
+| `NEXT_PUBLIC_APPLICATIONINSIGHTS_CONNECTION_STRING` | No | Azure Application Insights connection string. When set, privacy-friendly (cookieless) analytics is enabled. As a `NEXT_PUBLIC_*` variable it is inlined into the client bundle at build time. |
 
-On Azure App Service, add it under **Settings → Environment variables**.
-Enabling Application Insights on the Web App sets
-`APPLICATIONINSIGHTS_CONNECTION_STRING` automatically.
+In CI these are provided as GitHub Actions secrets consumed by the build step.
 
 ## Deployment
 
-The site is deployed to **Azure App Service** (`spguy`, Linux, Node 22-LTS) via
-a GitHub Actions workflow ([`.github/workflows/main_spguy.yml`](.github/workflows/main_spguy.yml)):
-every push to `main` builds the app and deploys it, and it is served on the
-custom domain [spjc.fr](https://spjc.fr).
+The site is deployed to **Azure Static Web Apps** (Free plan) via a GitHub Actions
+workflow ([`.github/workflows/azure-static-web-apps.yml`](.github/workflows/azure-static-web-apps.yml)):
+every push to `main` runs `npm ci && npm run build` and uploads the `out/` folder.
+Pull requests get their own temporary preview environment, which is cleaned up when
+the PR is closed. The site is served on the custom domains
+[spjc.fr](https://spjc.fr) and [www.spjc.fr](https://www.spjc.fr).
 
 ## Changelog
 
