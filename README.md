@@ -20,6 +20,9 @@ Personal portfolio of **Jean-Cyril Drouhin** — SharePoint & M365 specialist, C
 - Glassmorphism design with an animated mesh background, respecting
   `prefers-reduced-motion`.
 - SEO metadata, Open Graph image, sitemap, robots and a bilingual legal notice.
+- Web app manifest (installable as a basic PWA) and security headers
+  (HSTS, `X-Frame-Options`, `X-Content-Type-Options`, `Referrer-Policy`,
+  `Permissions-Policy`, and a `Content-Security-Policy` in report-only mode).
 
 ## Tech stack
 
