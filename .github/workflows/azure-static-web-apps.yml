@@ -3,10 +3,12 @@ name: Azure Static Web Apps CI/CD
 on:
   push:
     branches:
+      - main
       - feature/static-web-app
   pull_request:
     types: [opened, synchronize, reopened, closed]
     branches:
+      - main
       - feature/static-web-app
   workflow_dispatch:
 
