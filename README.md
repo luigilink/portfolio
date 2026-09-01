@@ -22,7 +22,7 @@ Personal portfolio of **Jean-Cyril Drouhin** — SharePoint & M365 specialist, C
 - SEO metadata, Open Graph image, sitemap, robots and a bilingual legal notice.
 - Web app manifest (installable as a basic PWA) and security headers
   (HSTS, `X-Frame-Options`, `X-Content-Type-Options`, `Referrer-Policy`,
-  `Permissions-Policy`, and a `Content-Security-Policy` in report-only mode).
+  `Permissions-Policy`, and an enforced `Content-Security-Policy`).
 
 ## Tech stack
 
