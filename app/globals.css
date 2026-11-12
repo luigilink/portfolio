@@ -2,12 +2,14 @@
 
 @custom-variant dark (&:is(.dark *));
 
-@theme {
+@theme inline {
   --font-*: initial;
   --font-sans: var(--font-geist-sans);
   --font-caption: var(--font-caption);
   --font-mono: var(--font-geist-mono);
+}
 
+@theme {
   --color-background: hsl(var(--background));
   --color-foreground: hsl(var(--foreground));
 
