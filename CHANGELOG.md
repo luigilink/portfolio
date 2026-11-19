@@ -3,6 +3,15 @@
 The format is based on and uses the types of changes according to [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Fixed
+
+- Apply the Geist Sans and Geist Mono fonts. The `font-sans` and `font-mono`
+  tokens were resolved on `:root`, where the `next/font` variables do not exist,
+  so the site fell back to the system font stack. The font tokens are now
+  declared in an `@theme inline` block.
+
 ## [0.6.2] - 2026-09-01
 
 ### Changed
